@@ -1,0 +1,3 @@
+[submodule "servico_bancodados"]
+	path = servico_bancodados
+	url = https://github.com/pedrowil12/servico_db
