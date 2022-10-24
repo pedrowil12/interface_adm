@@ -1,0 +1,123 @@
+<%# A linha abaixo carrega no template o conteúdo total do arquivo header.ejs%>
+    <%-include('base_header') -%>
+
+        <div class="container-fluid cabecalho">
+            <h1>Projetos</h1>
+            <button type="button" id="addProjeto" style="float: right; margin-top: -50px;" class="btn btn-primary">Adicionar
+                projeto
+            </button>
+        </div>
+
+        <br /><br /><br />
+        <!--begin::Container-->
+        <div class="row" style="width: 95%; margin:auto">
+            <% for(var i=0; i< lista_projetos.length; ++i) { %>
+                <div class="card blue" style="width: 22rem;"
+                    onCLick="window.open('<%=lista_projetos[i].repo %>','_blank');">
+                    <div class="card-body" style="height: 250px ;">
+                        <h5 class="card-title" style="text-align:center;">
+                            <%=lista_projetos[i].titulo %>
+                        </h5><br />
+                        <h6 class="card-subtitle mb-4">Tipo: <%=lista_projetos[i].tipo %>
+                        </h6>
+                        <h6 class="card-subtitle mb-4">Tecnologia: <%=lista_projetos[i].tecnologia %>
+                        </h6>
+                        <h6 class="card-subtitle mb-4">Início: <%=lista_projetos[i].inicio %>
+                        </h6>
+                        <h6 class="card-subtitle">Término: <%=lista_projetos[i].fim %>
+                        </h6>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+
+
+
+        <!--Modal-->
+        <div class="modal fade" id="mdlInstrucao" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabelOne">Cadastrar projeto.</h5>
+                    </div>
+                    <div class="modal-body" id="bodyModal" style="overflow:auto;max-height:420px;">
+
+
+                        <form action="add" method="post">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="form-group">
+
+                                        <label for="exampleFormControlInput1" class="form-label"> Título do
+                                            projeto:</label>
+                                        <input class="form-control" name=titulo type="text"
+                                            placeholder="Título projeto">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-xs-12">
+                                    <div class="form-group">
+
+                                        <label for="exampleFormControlInput1" class="form-label">Link do repositório:</label>
+                                        <input class="form-control" name=repo type="text"
+                                            placeholder="Repositório do projeto">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1" class="form-label"> Tipo:</label>
+                                        <input class="form-control" name=tipo type="text" placeholder="Tipo">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1" class="form-label"> Tecnologia:</label>
+                                        <input class="form-control" name=tecnologia type="text"
+                                            placeholder="Tecnologia">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1" class="form-label"> Data inicial:</label>
+                                        <input class="form-control data" name=inicio type="text" placeholder="Data inicial">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1" class="form-label"> Data final:</label>
+                                        <input class="form-control data" name=fim type="text" placeholder="Data final">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <br>
+                            <input type="submit" class="btn btn-success" />
+
+                        </form>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="fecharModal"
+                        data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+
+        <script type="text/javascript" src="js/projetos.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                ProjetosAPI.init();
+            });
+        </script>
+        <%# A linha abaixo carrega no template o conteúdo total do arquivo footer.ejs %>
+            <%- include('base_footer') -%>

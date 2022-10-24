@@ -1,0 +1,65 @@
+<%# A linha abaixo carrega no template o conteúdo total do arquivo header.ejs%>
+    <%-include('base_header') -%>
+    <br>
+        <div style="width: 90%; margin:auto">
+            <form action="add" method="post">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="form-group">
+
+                            <label for="exampleFormControlInput1" class="form-label"> Título do
+                                projeto:</label>
+                            <input class="form-control" name=titulo type="text" placeholder="Título projeto">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <div class="form-group">
+
+                            <label for="exampleFormControlInput1" class="form-label">Link do repositório:</label>
+                            <input class="form-control" name=repo type="text" placeholder="Repositório do projeto">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label"> Tipo:</label>
+                            <input class="form-control" name=tipo type="text" placeholder="Tipo">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label"> Tecnologia:</label>
+                            <input class="form-control" name=tecnologia type="text" placeholder="Tecnologia">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label"> Data inicial:</label>
+                            <input class="form-control data" name=inicio type="text" placeholder="Data inicial">
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" class="form-label"> Data final:</label>
+                            <input class="form-control data" name=fim type="text" placeholder="Data final">
+                        </div>
+                    </div>
+
+
+                </div>
+                <br>
+                <input type="submit" class="btn btn-success" />
+
+            </form>
+        </div>
+
+        <script type="text/javascript" src="js/projetos.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                ProjetosAPI.init();
+            });
+        </script>
+        <%# A linha abaixo carrega no template o conteúdo total do arquivo footer.ejs %>
+            <%- include('base_footer') -%>
